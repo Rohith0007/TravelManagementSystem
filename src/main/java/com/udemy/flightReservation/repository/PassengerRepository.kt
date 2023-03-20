@@ -1,6 +1,0 @@
-package com.udemy.flightReservation.repository
-
-import com.udemy.flightReservation.entity.Passenger
-import org.springframework.data.jpa.repository.JpaRepository
-
-interface PassengerRepository : JpaRepository<Passenger?, Long?>
