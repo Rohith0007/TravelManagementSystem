@@ -1,0 +1,140 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Find Flights</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            background-color: #f1f1f1;-->
+<!--            font-family: Arial, sans-serif;-->
+<!--        }-->
+
+<!--        h1 {-->
+<!--            text-align: center;-->
+<!--            margin-top: 50px;-->
+<!--        }-->
+
+<!--        form {-->
+<!--            max-width: 500px;-->
+<!--            margin: 0 auto;-->
+<!--            background-color: #fff;-->
+<!--            padding: 20px;-->
+<!--            border-radius: 5px;-->
+<!--            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);-->
+<!--        }-->
+
+<!--        label {-->
+<!--            display: block;-->
+<!--            margin-bottom: 5px;-->
+<!--            font-weight: bold;-->
+<!--        }-->
+
+<!--        input[type="text"] {-->
+<!--            padding: 10px;-->
+<!--            border-radius: 3px;-->
+<!--            border: 1px solid #ccc;-->
+<!--            margin-bottom: 15px;-->
+<!--            width: 100%;-->
+<!--            box-sizing: border-box;-->
+<!--        }-->
+
+<!--        input[type="submit"] {-->
+<!--            background-color: #4CAF50;-->
+<!--            color: #fff;-->
+<!--            padding: 10px 20px;-->
+<!--            border: none;-->
+<!--            border-radius: 3px;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+
+<!--        input[type="submit"]:hover {-->
+<!--            background-color: #3e8e41;-->
+<!--        }-->
+
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Find Flights</h1>-->
+<!--<form th:action="@{/flights}" method="post">-->
+<!--    <label for="from">From:</label>-->
+<!--    <input type="text" id="from" name="from">-->
+<!--    <label for="to">To:</label>-->
+<!--    <input type="text" id="to" name="to">-->
+<!--    <label for="dateOfDeparture">Departure date:</label>-->
+<!--    <input type="text" id="dateOfDeparture" name="dateOfDeparture">-->
+<!--    <input type="submit" value="Search">-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Trains | Travel Management Application</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        /* Set margin and padding to 0 for the body */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Set a fixed width for the form */
+        form {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Add some space between the form elements */
+        label, select {
+            margin-right: 10px;
+        }
+
+        /* Set the width of the select elements to be equal */
+        select {
+            width: 200px;
+        }
+
+        /* Add some padding to the form elements */
+        label, select, input[type="submit"], input[type="text"] {
+            padding: 5px;
+        }
+
+        /* Style the submit button */
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Center the h1 element */
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Find Flights</h1>
+<form th:action="@{/flights}" method="post">
+    <label for="from">From:</label>
+    <select id="from" name="from">
+        <option th:each="city : ${fromCities}" th:value="${city}" th:text="${city}"></option>
+    </select>
+    <label for="to">To:</label>
+    <select id="to" name="to">
+        <option th:each="city : ${toCities}" th:value="${city}" th:text="${city}"></option>
+    </select>
+    <label for="dateOfDeparture">Departure date:</label>
+    <input type="text" id="dateOfDeparture" name="dateOfDeparture" data-flatpickr>
+    <input type="submit" value="Search">
+</form>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    flatpickr("#dateOfDeparture");
+</script>
+</body>
+</html>
+
