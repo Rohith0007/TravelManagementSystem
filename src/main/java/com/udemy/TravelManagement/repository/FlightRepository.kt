@@ -13,4 +13,10 @@ interface FlightRepository : JpaRepository<Flight?, Long?> {
         @Param("arrivalCity") to: String?,
         @Param("dateOfDeparture") dateOfDeparture: Date?
     ): List<Flight?>?
+
+    @Query("SELECT DISTINCT f.departureCity FROM Flight f")
+    fun findFromCities(): List<String?>?
+
+    @Query("SELECT DISTINCT f.arrivalCity FROM Flight f")
+    fun findToCities(): List<String?>?
 }

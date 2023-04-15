@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymele
-af.org">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Display Flights</title>
+    <title>Display Buses</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -44,31 +42,31 @@ af.org">
 <table>
     <thead>
     <tr>
-        <th>Flight Number</th>
-        <th>Airlines</th>
-        <th>Departure City</th>
+        <th>Bus Number</th>
+        <th>Bus Name</th>
+        <th>From Station</th>
+        <th>To Station</th>
+        <th>Date of Departure</th>
         <th>Departure Time</th>
-        <th>Arrival City</th>
-        <th>Arrival Date</th>
+        <th>Arrival Time</th>
         <th>Journey Time</th>
-        <th>Mode</th>
         <th>Price</th>
-        <th>Actions</th>
+        <th>Select</th>
     </tr>
     </thead>
-    <!--/*@thymesVar id="flights" type=""*/-->
+    <!--/*@thymesVar id="trains" type=""*/-->
     <tbody>
-    <tr th:each="flight:${flights}">
-        <td th:text="${flight.flightNumber}"></td>
-        <td th:text="${flight.operatingAirlines}"></td>
-        <td th:text="${flight.departureCity}"></td>
-        <td th:text="${flight.estimatedDepartureTime}"></td>
-        <td th:text="${flight.arrivalCity}"></td>
-        <td th:text="${flight.arrivalDate}"></td>
-        <td th:text="${flight.journeyTime}"></td>
-        <td th:text="${flight.mode}"></td>
-        <td th:text="${flight.price}"></td>
-        <td><a th:href="@{'/reservation/'+${flight.id}+'?mot=flight'}">Select</a></td>
+    <tr th:each="bus:${buses}">
+        <td th:text="${bus.busNumber}"></td>
+        <td th:text="${bus.busName}"></td>
+        <td th:text="${bus.fromStation}"></td>
+        <td th:text="${bus.toStation}"></td>
+        <td th:text="${bus.dateOfDeparture}"></td>
+        <td th:text="${bus.departureTime}"></td>
+        <td th:text="${bus.arrivalTime}"></td>
+        <td th:text="${bus.journeyTime}"></td>
+        <td th:text="${bus.price}"></td>
+        <td><a th:href="@{'/reservation/'+${bus.id}+'?mot=bus'}">Select</a></td>
     </tr>
     </tbody>
 </table>

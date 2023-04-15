@@ -11,19 +11,19 @@ import java.io.FileOutputStream
 
 @Component
 class PdfGenerator {
-    fun generateItinerary(reservation: Reservation, filePath: String?) {
+    fun generateItinerary_F(reservation: Reservation, filePath: String?) {
         val document = Document()
         try {
             PdfWriter.getInstance(document, FileOutputStream(filePath))
             document.open()
-            document.add(generateTable(reservation))
+            document.add(generateTable_F(reservation))
             document.close()
         } catch (e: Exception) {
             e.printStackTrace()
         }
     }
 
-    fun generateTable(reservation: Reservation): PdfPTable {
+    fun generateTable_F(reservation: Reservation): PdfPTable {
         val table = PdfPTable(2)
         var cell: PdfPCell
         cell = PdfPCell(Phrase("Flight Itinerary"))
@@ -39,6 +39,8 @@ class PdfGenerator {
         table.addCell("Flight number ")
         table.addCell(reservation.flight!!.flightNumber)
         table.addCell("Departure Time")
+        table.addCell(reservation.flight!!.operatingAirlines)
+        table.addCell("Operating Airlines")
         table.addCell(reservation.flight!!.estimatedDepartureTime.toString())
         cell = PdfPCell(Phrase("Passenger Details"))
         cell.colspan = 2
@@ -53,4 +55,111 @@ class PdfGenerator {
         table.addCell(reservation.passenger!!.phone)
         return table
     }
+
+    fun generateItinerary_T(reservation: Reservation, filePath: String?) {
+        val document = Document()
+        try {
+            PdfWriter.getInstance(document, FileOutputStream(filePath))
+            document.open()
+            document.add(generateTable_T(reservation))
+            document.close()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun generateTable_T(reservation: Reservation): PdfPTable {
+        val table = PdfPTable(2)
+        var cell: PdfPCell
+        cell = PdfPCell(Phrase("Train Itinerary"))
+        cell.colspan = 2
+        table.addCell(cell)
+        cell = PdfPCell(Phrase("Train Details"))
+        cell.colspan = 2
+        table.addCell(cell)
+        table.addCell("Train number")
+        table.addCell(reservation.train!!.trainNumber)
+        table.addCell("Train name")
+        table.addCell(reservation.train!!.trainName)
+        table.addCell("From station")
+        table.addCell(reservation.train!!.fromStation)
+        table.addCell("To station")
+        table.addCell(reservation.train!!.toStation)
+        table.addCell("Date of departure")
+        table.addCell(reservation.train!!.dateOfDeparture.toString())
+        table.addCell("Departure time")
+        table.addCell(reservation.train!!.departureTime)
+        table.addCell("Arrival time")
+        table.addCell(reservation.train!!.arrivalTime)
+        table.addCell("Journey time")
+        table.addCell(reservation.train!!.journeyTime)
+        table.addCell("Price")
+        table.addCell(reservation.train!!.price.toString())
+        cell = PdfPCell(Phrase("Passenger Details"))
+        cell.colspan = 2
+        table.addCell(cell)
+        table.addCell("First Name")
+        table.addCell(reservation.passenger!!.firstName)
+        table.addCell("Last Name")
+        table.addCell(reservation.passenger!!.lastName)
+        table.addCell("Email")
+        table.addCell(reservation.passenger!!.email)
+        table.addCell("Phone")
+        table.addCell(reservation.passenger!!.phone)
+        return table
+    }
+
+    fun generateItinerary_B(reservation: Reservation, filePath: String?) {
+        val document = Document()
+        try {
+            PdfWriter.getInstance(document, FileOutputStream(filePath))
+            document.open()
+            document.add(generateTable_B(reservation))
+            document.close()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun generateTable_B(reservation: Reservation): PdfPTable {
+        val table = PdfPTable(2)
+        var cell: PdfPCell
+        cell = PdfPCell(Phrase("Bus Itinerary"))
+        cell.colspan = 2
+        table.addCell(cell)
+        cell = PdfPCell(Phrase("Bus Details"))
+        cell.colspan = 2
+        table.addCell(cell)
+        table.addCell("Bus number")
+        table.addCell(reservation.bus!!.busNumber)
+        table.addCell("Bus name")
+        table.addCell(reservation.bus!!.busName)
+        table.addCell("From station")
+        table.addCell(reservation.bus!!.fromStation)
+        table.addCell("To station")
+        table.addCell(reservation.bus!!.toStation)
+        table.addCell("Date of departure")
+        table.addCell(reservation.bus!!.dateOfDeparture.toString())
+        table.addCell("Departure time")
+        table.addCell(reservation.bus!!.departureTime)
+        table.addCell("Arrival time")
+        table.addCell(reservation.bus!!.arrivalTime)
+        table.addCell("Journey time")
+        table.addCell(reservation.bus!!.journeyTime)
+        table.addCell("Price")
+        table.addCell(reservation.bus!!.price.toString())
+        cell = PdfPCell(Phrase("Passenger Details"))
+        cell.colspan = 2
+        table.addCell(cell)
+        table.addCell("First Name")
+        table.addCell(reservation.passenger!!.firstName)
+        table.addCell("Last Name")
+        table.addCell(reservation.passenger!!.lastName)
+        table.addCell("Email")
+        table.addCell(reservation.passenger!!.email)
+        table.addCell("Phone")
+        table.addCell(reservation.passenger!!.phone)
+        return table
+    }
+
 }

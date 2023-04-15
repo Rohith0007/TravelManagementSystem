@@ -75,23 +75,30 @@
 <table>
     <thead>
     <tr>
-        <th>Airlines</th>
-        <th>Departure City</th>
-        <th>Arrival City</th>
-        <th>Departure date</th>
-        <th>Estimated departure time</th>
+        <th>Bus Number</th>
+        <th>Bus Name</th>
+        <th>From Station</th>
+        <th>To Station</th>
+        <th>Date of Departure</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>
+        <th>Journey Time</th>
+        <th>Price</th>
         <th></th>
     </tr>
     </thead>
     <tbody>
     <!--/*@thymesVar id="flights" type=""*/-->
-    <tr th:each="flight:${flights}" th:class="${flight.id % 2 == 0} ? 'even' : 'odd'">
-        <td th:text="${flight.operatingAirlines}"></td>
-        <td th:text="${flight.departureCity}"></td>
-        <td th:text="${flight.arrivalCity}"></td>
-        <td th:text="${flight.dateOfDeparture}"></td>
-        <td th:text="${flight.estimatedDepartureTime}"></td>
-        <td ><a th:href="@{'/reservation/'+${flight.id}}">Select</a></td>
+    <tr th:each="bus:${buses}" th:class="${bus.id % 2 == 0} ? 'even' : 'odd'">
+        <td th:text="${bus.trainNumber}"></td>
+        <td th:text="${bus.trainName}"></td>
+        <td th:text="${bus.fromStation}"></td>
+        <td th:text="${bus.toStation}"></td>
+        <td th:text="${bus.dateOfDeparture}"></td>
+        <td th:text="${bus.departureTime}"></td>
+        <td th:text="${bus.arrivalTime}"></td>
+        <td th:text="${bus.journeyTime}"></td>
+        <td th:text="${bus.price}"></td>
     </tr>
     </tbody>
 </table>
@@ -152,6 +159,7 @@
         CVV:
         <input type="password" name="cvv" required>
     </label>
+    <input type="hidden" name="trainId" th:value="${train.id}">
     <input type="submit" value="Complete Reservation">
 </form>
 

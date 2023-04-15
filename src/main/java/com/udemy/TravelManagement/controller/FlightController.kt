@@ -1,10 +1,13 @@
 package com.udemy.TravelManagement.controller
 
+import com.udemy.TravelManagement.entity.Flight
 import com.udemy.TravelManagement.repository.FlightRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.format.annotation.DateTimeFormat
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
+import org.springframework.web.bind.annotation.ModelAttribute
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import java.util.*
@@ -29,5 +32,13 @@ class FlightController {
     @RequestMapping("admin/showAddFlight")
     fun showAddFlight(): String {
         return "addFlight"
+    }
+
+    @PostMapping("/add-flight")
+    fun addFlight(@ModelAttribute("flight") flight: Flight?): String? {
+        if (flight != null) {
+            flightRepository!!.save(flight)
+        };
+        return "flights"
     }
 }

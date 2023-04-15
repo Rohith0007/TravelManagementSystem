@@ -15,4 +15,10 @@ class Reservation : AbstractEntity() {
 
     @OneToOne
     var flight: Flight? = null
+
+    @OneToOne
+    var train: Train? = null
+
+    @OneToOne
+    var bus: Bus? = null
 }

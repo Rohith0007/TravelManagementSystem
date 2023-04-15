@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymele
+af.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Display Flights</title>
@@ -42,23 +44,31 @@
 <table>
     <thead>
     <tr>
+        <th>Flight Number</th>
         <th>Airlines</th>
         <th>Departure City</th>
-        <th>Arrival City</th>
-        <th>Departure Date</th>
         <th>Departure Time</th>
-        <th>Select</th>
+        <th>Arrival City</th>
+        <th>Arrival Date</th>
+        <th>Journey Time</th>
+        <th>Mode</th>
+        <th>Price</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <!--/*@thymesVar id="flights" type=""*/-->
     <tbody>
     <tr th:each="flight:${flights}">
+        <td th:text="${flight.flightNumber}"></td>
         <td th:text="${flight.operatingAirlines}"></td>
         <td th:text="${flight.departureCity}"></td>
-        <td th:text="${flight.arrivalCity}"></td>
-        <td th:text="${flight.dateOfDeparture}"></td>
         <td th:text="${flight.estimatedDepartureTime}"></td>
-        <td><a th:href="@{'/reservation/'+${flight.id}}">Select</a></td>
+        <td th:text="${flight.arrivalCity}"></td>
+        <td th:text="${flight.arrivalDate}"></td>
+        <td th:text="${flight.journeyTime}"></td>
+        <td th:text="${flight.mode}"></td>
+        <td th:text="${flight.price}"></td>
+        <td><a th:href="@{'/reservation/'+${flight.id}+'?mot=flight'}">Select</a></td>
     </tr>
     </tbody>
 </table>

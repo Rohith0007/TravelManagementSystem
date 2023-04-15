@@ -2,6 +2,8 @@ package com.udemy.TravelManagement.Dto
 
 class ReservationRequest {
     var flightId: Long? = null
+    var trainId: Long? = null
+    var busId: Long? = null
     private var pFirstName: String? = null
     private var pLastName: String? = null
     private var pEmail: String? = null
@@ -10,6 +12,18 @@ class ReservationRequest {
     var cardNumber: String? = null
     var expiryDate: String? = null
     var cvvNumber = 0
+
+    fun getFlightId1(): Long? {
+        return flightId
+    }
+
+    fun getBusId1(): Long? {
+        return busId
+    }
+
+    fun getTrainId1(): Long? {
+        return trainId
+    }
     fun getpFirstName(): String? {
         return pFirstName
     }
