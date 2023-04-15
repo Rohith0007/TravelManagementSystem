@@ -26,6 +26,7 @@ class BusController {
         return "displayBuses"
     }
 
+
     @RequestMapping("/admin/showAddBus")
     fun showAddBus(): String {
         return "addBus"
