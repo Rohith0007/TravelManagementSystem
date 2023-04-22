@@ -41,6 +41,11 @@ class UserController {
         return "login/registerUser_2"
     }
 
+    @RequestMapping("/")
+    fun indexPage(): String {
+        return "index_1"
+    }
+
     @RequestMapping("/loginUser")
     fun showLogin(): String {
         return "login/login_2"
