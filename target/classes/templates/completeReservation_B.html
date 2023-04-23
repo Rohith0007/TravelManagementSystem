@@ -90,8 +90,8 @@
     <tbody>
     <!--/*@thymesVar id="flights" type=""*/-->
     <tr th:each="bus:${buses}" th:class="${bus.id % 2 == 0} ? 'even' : 'odd'">
-        <td th:text="${bus.trainNumber}"></td>
-        <td th:text="${bus.trainName}"></td>
+        <td th:text="${bus.busNumber}"></td>
+        <td th:text="${bus.busName}"></td>
         <td th:text="${bus.fromStation}"></td>
         <td th:text="${bus.toStation}"></td>
         <td th:text="${bus.dateOfDeparture}"></td>
@@ -159,7 +159,7 @@
         CVV:
         <input type="password" name="cvv" required>
     </label>
-    <input type="hidden" name="trainId" th:value="${train.id}">
+    <input type="hidden" name="busId" th:value="${bus.id}">
     <input type="submit" value="Complete Reservation">
 </form>
 
