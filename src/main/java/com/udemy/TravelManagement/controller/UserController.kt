@@ -1,6 +1,5 @@
 package com.udemy.TravelManagement.controller
 
-import com.udemy.TravelManagement.entity.Flight
 import com.udemy.TravelManagement.entity.User
 import com.udemy.TravelManagement.repository.BusRepository
 import com.udemy.TravelManagement.repository.FlightRepository
@@ -74,12 +73,12 @@ class UserController {
     }
 
     @GetMapping("login-user")
-    fun loginFromPage(): String {
+    fun loginPage(): String {
         return "mot_3"
     }
 
     @PostMapping("doItAgain")
-    fun doItAgain(): String{
+    fun again(): String{
         return "mot_3"
     }
 
@@ -116,7 +115,7 @@ class UserController {
         return null;
     }
 
-    fun getAvailableDates(): List<String> {
+    private fun getAvailableDates(): List<String> {
         val dates: MutableList<String> = ArrayList()
         val calendar = Calendar.getInstance()
         calendar.time = SimpleDateFormat("yyyy-MM-dd").parse("2000-01-01")

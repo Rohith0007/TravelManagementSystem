@@ -63,8 +63,12 @@ class ReservationController {
             model.addAttribute("reservationRequest", reservationRequest)
             println(filePath)
             return "reservationConfirmation_T"
+        } else {
+            val bus = busRepository!!.findById(reservationRequest.busId).get()
+            model.addAttribute("bus", bus)
+            model.addAttribute("reservationRequest", reservationRequest)
+            println(filePath)
+            return "reservationConfirmation_B"
         }
-
-        return "reservationConfirmation_F"
     }
 }
