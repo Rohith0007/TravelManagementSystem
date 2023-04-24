@@ -29,8 +29,6 @@ class ReservationService {
     @Autowired
     var pdfGenerator: PdfGenerator? = null
 
-    @Autowired
-    var emailUtil: EmailUtil? = null
     fun bookFlight(reservationRequest: ReservationRequest): String? {
         try {
             var flight = Flight()
