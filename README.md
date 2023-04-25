@@ -1,13 +1,15 @@
 # Travel Management System
 
-## Install Intellij IDE
+1) Install Intellij IDE
 
-## Install Java 1.8
+2) Install Java 1.8
 
-## Run the Application 
+3) Clone the repository
 
-## Go to chrome/ any browser and click :
+4) Build the application, change to java 1.8 SK and select change language level to 8-Annotations etc.
 
-http://localhost:8080/abc-airlines/
+5) Run the Application 
 
-gitLink: https://github.com/Rohith0007/TravelManagementSystem
+6) Go to chrome/ any browser and click : http://localhost:8080/abc-airlines/
+
+Project GitLink: https://github.com/Rohith0007/TravelManagementSystem
