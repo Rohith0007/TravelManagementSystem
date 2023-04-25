@@ -50,19 +50,19 @@ class ReservationController {
         val filePath = reservationService!!.bookFlight(reservationRequest)
         model.addAttribute("filePath", filePath)
         if (reservationRequest.flightId != null) {
-            val flight = flightRepository!!.findById(reservationRequest.flightId).get()
+            val flight = reservationRequest.flightId?.let { flightRepository!!.findById(it).get() }
             model.addAttribute("flight", flight)
             model.addAttribute("reservationRequest", reservationRequest)
             println(filePath)
             return "reservationConfirmation_F"
         } else if (reservationRequest.trainId != null) {
-            val train = trainRepository!!.findById(reservationRequest.trainId).get()
+            val train = reservationRequest.trainId?.let { trainRepository!!.findById(it).get() }
             model.addAttribute("train", train)
             model.addAttribute("reservationRequest", reservationRequest)
             println(filePath)
             return "reservationConfirmation_T"
         } else {
-            val bus = busRepository!!.findById(reservationRequest.busId).get()
+            val bus = reservationRequest.busId?.let { busRepository!!.findById(it).get() }
             model.addAttribute("bus", bus)
             model.addAttribute("reservationRequest", reservationRequest)
             println(filePath)

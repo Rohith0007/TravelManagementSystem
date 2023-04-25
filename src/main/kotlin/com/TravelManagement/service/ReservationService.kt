@@ -33,11 +33,11 @@ class ReservationService {
             var train = Train()
             var bus = Bus()
             if (reservationRequest.flightId != null) {
-                flight = flightRepository!!.findById(reservationRequest.getFlightId1()).get();
+                flight = reservationRequest.getFlightId1()?.let { flightRepository!!.findById(it).get() }!!;
             } else if (reservationRequest.trainId != null) {
-                train = trainRepository!!.findById(reservationRequest.getTrainId1()).get();
+                train = reservationRequest.getTrainId1()?.let { trainRepository!!.findById(it).get() }!!;
             } else {
-                bus = busRepository!!.findById(reservationRequest.getBusId1()).get();
+                bus = reservationRequest.getBusId1()?.let { busRepository!!.findById(it).get() }!!;
             }
             val passenger = Passenger()
             passenger.firstName = reservationRequest.getpFirstName()
