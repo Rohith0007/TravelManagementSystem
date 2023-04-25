@@ -4,17 +4,69 @@
     <meta charset="UTF-8">
     <title>Registeration</title>
 </head>
+<style>
+.container{
+/* display: grid;
+align-content: center;
+/* padding-left: 650px; */
+/* padding-right: 500px;
+border-radius: 10px;
+background-color:rgb(206, 230, 240);
+padding-top: 50px;
+text-align: center; */
+display: grid;
+align-content: center;
+padding-left: 650px;
+padding-right: 450px;
+border-radius: 10px;
+background-color:rgb(206, 230, 240);
+padding-bottom: 100px;
+}
+button {
+  background-color: #5881b8;
+  color: white;
+  padding: 10px 10px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width:250px;
+  text-align: center;
+  border-radius: 10px;
+}
+.heading{
+    display: grid;
+    background-color:#5881b8;
+    border-radius: 10px;
+    text-align: center;
+    padding:0px
+}
+</style>
 <body>
-<h1>Register</h1>
-<form action="register-user", method="post">
+<div class="heading"><h1>REGISTER</h1></div>
+<div class="container" style="padding-right:20px">
+    <form action="register-user", method="post">
 <pre>
-    First Name: <input type="text" name="firstName"><br/>
-    Last Name: <input type="text" name="lastName"><br/>
-    Email:<input type="text" name="email"><br/>
-    Password:<input type="password" name="password"><br/>
-    Confirm Password:<input type="password"><br/><br/>
-    <input type="submit" value="Register" >
+
+
+<label for="fname" style="width:250px;font-size: 20px;text-align: center;"><b>FIRST NAME</b></label>
+<input type="text" placeholder="Enter firstName" name="firstName" required style = "text-align: center; margin-top: 10px; width:250px;height: 25px;border-radius: 10px;">
+
+<label for="lname" style="width:250px;font-size:20px;"><b>LAST NAME</b></label>
+<input type="text" placeholder="Enter lastName" name="lastName" required style = "text-align: center; margin-top: 10px; width:250px;height: 25px;border-radius: 10px;">
+
+<label for="email" style="width:250px;font-size: 20px;"><b>EMAIL</b></label>
+<input type="text" placeholder="Enter email" name="email" required style = "text-align: center; margin-top: 10px; width:250px;height: 25px;border-radius: 10px;">
+
+<label for="password" style="width:250px;font-size: 20px;"><b>PASSWORD</b></label>
+<input type="text" placeholder="Enter password" name="password" required style = "text-align: center; margin-top: 10px; width:250px;height: 25px;border-radius: 10px;">
+
+<label for="password" style="width:250px;font-size: 20px;"><b>CONFIRM PASSWORD</b></label>
+<input type="text" placeholder="Enter Password for confirmation" name="confirmPassword" required style = "text-align: center; margin-top: 10px; width:250px;height: 25px;border-radius: 10px;">
+
+
+<button type="submit" >Register</button>
 </pre>
-</form>
+    </form>
+</div>
 </body>
 </html>

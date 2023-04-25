@@ -12,7 +12,7 @@
         h1 {
             margin-top: 0;
             padding: 1em;
-            background-color: #2196F3;
+            background-color: #5881b8;
             color: white;
             text-align: center;
         }
@@ -29,14 +29,15 @@
         }
         input[type="text"], input[type="email"], input[type="password"] {
             border-radius: 5px;
-            border: none;
+            /* border: none; */
             padding: 0.5em;
             font-size: 1em;
             margin-top: 0.5em;
-            width: 100%;
+            width: 80%;
+            display:show;
         }
         input[type="submit"] {
-            background-color: #2196F3;
+            background-color: #5881b8;
             color: white;
             border-radius: 5px;
             border: none;
@@ -45,8 +46,8 @@
             cursor: pointer;
             margin-top: 1em;
         }
-        input[type="submit"]:hover {
-            background-color: #0B7dda;
+        input[type="submit"]::hover {
+            background-color: #5881b8;
         }
         table {
             border-collapse: collapse;
@@ -58,7 +59,7 @@
             padding: 0.5em;
         }
         th {
-            background-color: #2196F3;
+            background-color:#5881b8;
             color: white;
             font-weight: bold;
         }
@@ -102,44 +103,51 @@
     </tr>
     </tbody>
 </table>
+<div><label style="font-size: 25px;margin-left: 15px;">Passenger Details</label>
+</div>
 <form th:action="@{/reservation/complete-reservation}" method="post">
-    <h2>Passenger Details</h2>
+
     <label>
-        First Name:
+        First Name<br>
         <input type="text" name="pFirstName" required>
     </label>
+
     <label>
-        Last Name:
+        Last Name<br>
         <input type="text" name="pLastName" required>
     </label>
     <label>
-        Email:
+        Email<br>
         <input type="email" name="pEmail" required>
     </label>
     <label>
-        Phone:
-        <input type="tel" name="pPhone" required>
+        Phone<br>
+        <input type="text" maxlength="10" name="pPhone" required>
     </label>
     <label>
-        Address:
+        Address<br>
         <input type="text" name="pAddress" required>
     </label>
     <label>
-        City:
+        City<br>
         <input type="text" name="pCity" required>
     </label>
     <label>
-        State:
+        State<br>
         <input type="text" name="pState" required>
     </label>
     <label>
-        Zip Code:
-        <input type="text" name="pZipCode" required>
+        Zip Code<br>
+        <input type="text"  maxlength="5" name="pZipCode" required></td>
     </label>
-    <h2>Payment Details</h2>
+
+    <div><label style="font-size: 25px;">Payment Details</label>
+    </div>
+    <br>
     <label>
-        Card Type:
-        <select name="cardType" required>
+        Card Type
+        <br>
+        <select name="cardType"  style="width: 80%;height: 35px;" required>
             <option value="">Select a card type</option>
             <option value="Visa">Visa</option>
             <option value="Mastercard">Mastercard</option>
@@ -148,20 +156,29 @@
         </select>
     </label>
     <label>
-        Card Number:
-        <input type="text" name="cardNumber" required>
+        Card Number<br>
+        <input type="text" maxlength="16" name="cardNumber" required>
     </label>
     <label>
-        Expiration Date:
-        <input type="month" name="expirationDate" required>
+        Expiration Date
+        <br>
+        <input type="month" name="expirationDate" style="width: 80%;height: 35px;" required>
     </label>
     <label>
-        CVV:
-        <input type="password" name="cvv" required>
+        CVV<br>
+        <input type="password" maxlength="3" name="cvv" required>
     </label>
-    <input type="hidden" name="trainId" th:value="${train.id}">
-    <input type="submit" value="Complete Reservation">
+
+    <div>
+        <<input type="hidden" name="trainId" th:value="${train.id}">
+        <input type="submit" value="Complete Reservation" style="width: 185%; margin: 0 auto;">
+    </div>
+
 </form>
 
 </body>
 </html>
+
+<script>
+
+</script>
