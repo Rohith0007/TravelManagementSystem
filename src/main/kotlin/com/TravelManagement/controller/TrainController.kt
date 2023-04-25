@@ -1,38 +1,33 @@
-package com.TravelManagement.controller;
+package com.TravelManagement.controller
 
-import com.TravelManagement.repository.TrainRepository;
-import com.TravelManagement.entity.Train;
-import com.TravelManagement.repository.TrainRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import java.util.*;
+import com.TravelManagement.repository.TrainRepository
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.format.annotation.DateTimeFormat
+import org.springframework.stereotype.Controller
+import org.springframework.ui.Model
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
+import java.util.*
 
 @Controller
 @RequestMapping("/trains")
-public class TrainController {
-
+class TrainController {
     @Autowired
-    private TrainRepository trainRepository;
-
+    private val trainRepository: TrainRepository? = null
     @RequestMapping
-    public String findTrains(
-            @RequestParam("from") String from,
-            @RequestParam("to") String to,
-            @RequestParam("dateOfDeparture") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateOfDeparture,
-            Model model) {
-
-        List<Train> trains = trainRepository.findTrains(from, to, dateOfDeparture);
-        model.addAttribute("trains", trains);
-        return "displayTrains";
+    fun findTrains(
+        @RequestParam("from") from: String?,
+        @RequestParam("to") to: String?,
+        @RequestParam("dateOfDeparture") @DateTimeFormat(pattern = "yyyy-MM-dd") dateOfDeparture: Date?,
+        model: Model
+    ): String {
+        val trains = trainRepository!!.findTrains(from, to, dateOfDeparture)
+        model.addAttribute("trains", trains)
+        return "displayTrains"
     }
 
     @RequestMapping("/admin/showAddTrain")
-    public String showAddTrain() {
-        return "addTrain";
+    fun showAddTrain(): String {
+        return "addTrain"
     }
-
 }
